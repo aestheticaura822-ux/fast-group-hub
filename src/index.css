@@ -1,13 +1,375 @@
-body {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  background: #FFFFFF;
+}
+
+/* ============================================ */
+/* THEME COLORS - Red, White, Silver, Grey */
+/* ============================================ */
+:root {
+  --primary-red: #DC2626;
+  --primary-red-dark: #B91C1C;
+  --primary-red-light: #FEE2E2;
+  --white: #FFFFFF;
+  --silver: #E5E7EB;
+  --silver-light: #F3F4F6;
+  --grey-dark: #1F2937;
+  --grey-medium: #4B5563;
+  --grey-light: #6B7280;
+  --grey-lighter: #9CA3AF;
+}
+
+/* Container */
+.container-custom {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 768px) {
+  .container-custom {
+    padding: 0 16px;
+  }
+}
+
+/* ============================================ */
+/* SCROLLBAR - Red Theme */
+/* ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--silver-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-red);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-red-dark);
+}
+
+/* ============================================ */
+/* TYPOGRAPHY */
+/* ============================================ */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--grey-dark);
+  font-weight: 700;
+}
+
+p {
+  color: var(--grey-medium);
+  line-height: 1.6;
+}
+
+/* Gradient Text - Red Theme */
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary-red), var(--primary-red-dark));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ============================================ */
+/* BUTTONS */
+/* ============================================ */
+.btn-primary {
+  background: var(--primary-red);
+  color: var(--white);
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  background: var(--primary-red-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -5px rgba(220, 38, 38, 0.3);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--primary-red);
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  border: 2px solid var(--primary-red);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-outline:hover {
+  background: var(--primary-red);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: var(--silver);
+  color: var(--grey-dark);
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: var(--grey-lighter);
+  transform: translateY(-2px);
+}
+
+/* ============================================ */
+/* CARDS */
+/* ============================================ */
+.card {
+  background: var(--white);
+  border-radius: 20px;
+  padding: 24px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  border: 1px solid var(--silver);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
+  border-color: var(--primary-red-light);
+}
+
+/* ============================================ */
+/* SECTIONS */
+/* ============================================ */
+.section-white {
+  background: var(--white);
+  padding: 80px 0;
+}
+
+.section-silver {
+  background: var(--silver-light);
+  padding: 80px 0;
+}
+
+.section-gradient {
+  background: linear-gradient(135deg, var(--silver-light), var(--white));
+  padding: 80px 0;
+}
+
+/* ============================================ */
+/* ANIMATIONS */
+/* ============================================ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(10px); }
+}
+
+/* Reveal Animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal-left.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.reveal-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal-right.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ============================================ */
+/* UTILITY CLASSES */
+/* ============================================ */
+
+/* Backgrounds */
+.bg-white { background: var(--white); }
+.bg-silver { background: var(--silver-light); }
+.bg-red { background: var(--primary-red); }
+.bg-red-light { background: var(--primary-red-light); }
+.bg-grey-dark { background: var(--grey-dark); }
+
+/* Text Colors */
+.text-white { color: var(--white); }
+.text-red { color: var(--primary-red); }
+.text-grey-dark { color: var(--grey-dark); }
+.text-grey-medium { color: var(--grey-medium); }
+.text-grey-light { color: var(--grey-light); }
+
+/* Borders */
+.border-red { border-color: var(--primary-red); }
+.border-silver { border-color: var(--silver); }
+.border-grey { border-color: var(--grey-lighter); }
+
+/* Shadows */
+.shadow-sm { box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); }
+.shadow-md { box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1); }
+.shadow-lg { box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+.shadow-xl { box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+.shadow-red { box-shadow: 0 10px 25px -5px rgba(220, 38, 38, 0.2); }
+
+/* ============================================ */
+/* RESPONSIVE */
+/* ============================================ */
+@media (max-width: 768px) {
+  .section-white, .section-silver, .section-gradient {
+    padding: 50px 0;
+  }
+  
+  .card {
+    padding: 20px;
+  }
+}
+
+/* ============================================ */
+/* NAVBAR STYLES */
+/* ============================================ */
+.navbar {
+  background: var(--white);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.navbar-scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(10px);
+}
+
+.nav-link {
+  color: var(--grey-medium);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: var(--primary-red);
+}
+
+.nav-link.active {
+  color: var(--primary-red);
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary-red);
+  border-radius: 2px;
+}
+
+/* ============================================ */
+/* HOVER EFFECTS */
+/* ============================================ */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-red {
+  transition: color 0.3s ease;
+}
+
+.hover-red:hover {
+  color: var(--primary-red);
 }
